@@ -1,0 +1,11 @@
+﻿.vscode/
+tmp/
+
+*.exe
+*.o
+*.obj
+*.out
+*.pdb
+
+lab2/test_fixed
+lab2/test_strategy_check
