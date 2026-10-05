@@ -1,0 +1,66 @@
+int variableCount = 3;//x1=1, x2=2, x3=3
+std::vector<std::vector<int>> clauses = {
+    {1, -2}, //1 2 0
+    {-1, 3},//-1 3 0
+    {2, 3}//2 3 0
+};
+std::vector<int> assignment = {1, 0, 1};//x1=t, x2=f, x3=t
+
+第一次循环：
+for(const auto& clause : clauses){
+//clause={1, -2}
+        bool clauseSatisfied = false;
+//clauseSatisfied=false  ①
+        for(int literal : clause){
+//literal=1
+            int variable = literal > 0 ? literal : -literal;
+//variable=1
+            bool value = assignment[variable - 1] == 1;
+//value=true (assignment[0]==1)
+            bool literalSatisfied = literal > 0 ? value : !value;
+//literalSatisfied=true
+            if(literalSatisfied){
+                clauseSatisfied = true;
+//clauseSatisfied=true  ②
+                break;
+//跳出循环，-2不会被检查，因为1 -2 0中1已经为true了。
+            }
+        }
+        if(!clauseSatisfied){
+              return false;
+        }
+    }
+    return true;
+
+第二轮外层循环：检查 {-1, 3}
+...
+
+
+for (const auto& 一条规则 : clauses) { // 遍历每一条规则
+    bool 这条规则满足了吗 = false;
+    
+    for (int 条件 : 一条规则) { // 遍历规则里的每个条件（文字）
+        // 1. 取出是第几个变量（比如 -2 就是第 2 个，对应下标 1）
+        int 第几个变量 = std::abs(条件); 
+        
+        // 2. 查出这个变量的真实值（true或false）
+        bool 这个变量选了吗 = (assignment[第几个变量 - 1] == 1);
+        
+        // 3. 看看这个条件是否被满足
+        // 如果是正数(比如 1)，条件就是“这个变量必须选” -> 满足条件 = 选了
+        // 如果是负数(比如 -2)，条件就是“这个变量必须不选” -> 满足条件 = !选了
+        bool 这个条件满足了吗 = (条件 > 0) ? 这个变量选了吗 : !这个变量选了吗;
+        
+        // 4. 只要有一个条件满足，整条规则就通过了
+        if (这个条件满足了吗) {
+            这条规则满足了吗 = true;
+            break; // 不用再看这条规则后面的条件了
+        }
+    }
+    
+    // 5. 如果整条规则一个条件都没满足，直接判定不合格
+    if (!这条规则满足了吗) {
+        return false;
+    }
+}
+return true;

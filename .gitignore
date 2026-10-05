@@ -9,3 +9,5 @@ tmp/
 
 lab2/test_fixed
 lab2/test_strategy_check
+lab2/test_equivalence
+lab2/test_42
