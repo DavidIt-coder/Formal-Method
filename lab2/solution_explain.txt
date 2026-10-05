@@ -1,6 +1,6 @@
 int variableCount = 3;//x1=1, x2=2, x3=3
 std::vector<std::vector<int>> clauses = {
-    {1, -2}, //1 2 0
+    {1, -2}, //1 -2 0
     {-1, 3},//-1 3 0
     {2, 3}//2 3 0
 };
