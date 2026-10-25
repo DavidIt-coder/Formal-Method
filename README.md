@@ -8,6 +8,7 @@
 | --- | --- | --- | --- |
 | Lab 1 | 从软件测试到形式化验证 | [lab1/report.md](lab1/report.md) | — |
 | Lab 2 | 命题逻辑与 SAT 求解 | [lab2/report.md](lab2/report.md) | [labReview/review2.md](labReview/review2.md) |
+| Lab 3 | 谓词逻辑与 SMT 求解 | [lab3/report.md](lab3/report.md) | [labReview/lab3_review.md](labReview/lab3_review.md) |
 
 ## 项目结构
 
@@ -42,11 +43,32 @@ Formal-Method/
 │   ├── test_equivalence.cpp        # 任务 6.2：穷举 64 种赋值比较原始 A/B
 │   ├── *_result.txt                # 保存的求解结果，具体对应关系见下表
 │   └── image*.png                  # 求解、测试和建模过程截图
+├── lab3/                           # 实验 3：谓词逻辑与 SMT 求解
+│   ├── report.md                   # 实验报告，包含运行结果和分析
+│   ├── z3_smoke.py                 # Z3Py 环境检查
+│   ├── mission1.py                 # 任务 1：布尔 CNF 部署模型
+│   ├── mission1_2.py               # 任务 1：整数 SMT 部署模型
+│   ├── lab3_solution.cpp           # 任务 2：validSchedule 排课检查函数
+│   ├── test2.cpp                   # 任务 2：四类排课测试
+│   ├── mission3.py                 # 任务 3：课程冲突排课求解
+│   ├── mission3_2.py               # 任务 3：新增冲突后比较两个和三个时间段
+│   ├── unsigned_increment.py       # 任务 4：8 位无符号加法反例
+│   ├── signed_increment.py         # 任务 4：8 位有符号加法反例
+│   ├── mission4.py                 # 任务 4：数学整数加法性质检查
+│   ├── mission5.py                 # 任务 5：谓词、量词与模块发布性质检查
+│   ├── mission5_2.py               # 任务 5：修改数据库测试状态后的性质检查
+│   ├── deployment_core.py          # 任务 6：部署冲突的不可满足核
+│   ├── mission6.py                 # 任务 6：逐条删除要求并重新求解
+│   ├── mission7.py                 # 任务 7：最少时间段排课优化
+│   ├── mission7_2.py               # 任务 7：新增冲突 (1,2) 后重新优化
+│   └── images/                     # 报告截图
 ├── labManual/                      # 实验任务书
 │   ├── 实验1_从软件测试到形式化验证_实验任务.pdf
-│   └── 实验2_命题逻辑与SAT求解_实验任务.pdf
+│   ├── 实验2_命题逻辑与SAT求解_实验任务.pdf
+│   └── 实验3_谓词逻辑与SMT求解_实验任务.pdf
 ├── labReview/                      # 实验过程回顾与知识总结
-│   └── review2.md
+│   ├── review2.md
+│   └── lab3_review.md              # 实验 3 的运行方法、操作过程和建模思路
 ├── .gitignore
 └── README.md
 ```
@@ -56,6 +78,7 @@ Formal-Method/
 
 - Windows、PowerShell、Visual Studio Code。
 - WSL / Ubuntu：运行 MiniSAT 和 Linux 下的编译测试。
-- GCC / G++，实验 2 的 C++ 程序采用 C++17。
+- GCC / G++，实验 2、3 的 C++ 程序采用 C++17。
 - CBMC 6.11：实验 1 的有界模型检查。
 - MiniSAT：实验 2 的 SAT 求解。
+- Python、Z3Py（`z3-solver`）：实验 3 的 SMT 建模、性质验证、不可满足核分析和优化求解。
