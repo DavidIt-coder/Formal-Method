@@ -9,6 +9,7 @@
 | Lab 1 | 从软件测试到形式化验证 | [lab1/report.md](lab1/report.md) | — |
 | Lab 2 | 命题逻辑与 SAT 求解 | [lab2/report.md](lab2/report.md) | [labReview/review2.md](labReview/review2.md) |
 | Lab 3 | 谓词逻辑与 SMT 求解 | [lab3/report.md](lab3/report.md) | [labReview/lab3_review.md](labReview/lab3_review.md) |
+| Lab 4 | 程序规约与定理证明 | [lab4/report.md](lab4/report.md) | [labReview/lab4_review.md](labReview/lab4_review.md) |
 
 ## 项目结构
 
@@ -62,13 +63,26 @@ Formal-Method/
 │   ├── mission7.py                 # 任务 7：最少时间段排课优化
 │   ├── mission7_2.py               # 任务 7：新增冲突 (1,2) 后重新优化
 │   └── images/                     # 报告截图
+├── lab4/                           # 实验 4：程序规约与定理证明
+│   ├── report.md                   # 实验报告与验证结果
+│   ├── smoke_test/                 # Frama-C 与 Rocq 环境检查
+│   ├── mission1/                   # 区间截断契约与错误实现
+│   ├── mission2/                   # 内存有效性与副作用边界
+│   ├── mission3/                   # 循环不变式与终止度量
+│   ├── mission4/                   # Eva 数值分析与 WP 边界证明
+│   ├── mission5/                   # 规约变异与非空洞性
+│   ├── mission6/                   # Rocq 列表归纳证明
+│   ├── mission7/                   # 验证 LLM 生成的 C 程序
+│   └── images/                     # 按任务分类的报告截图
 ├── labManual/                      # 实验任务书
 │   ├── 实验1_从软件测试到形式化验证_实验任务.pdf
 │   ├── 实验2_命题逻辑与SAT求解_实验任务.pdf
-│   └── 实验3_谓词逻辑与SMT求解_实验任务.pdf
+│   ├── 实验3_谓词逻辑与SMT求解_实验任务.pdf
+│   └── 实验4_程序规约与定理证明_实验任务.pdf
 ├── labReview/                      # 实验过程回顾与知识总结
 │   ├── review2.md
-│   └── lab3_review.md              # 实验 3 的运行方法、操作过程和建模思路
+│   ├── lab3_review.md              # 实验 3 的运行方法、操作过程和建模思路
+│   └── lab4_review.md              # 实验 4 的规约、证明与分析回顾
 ├── .gitignore
 └── README.md
 ```
@@ -82,3 +96,5 @@ Formal-Method/
 - CBMC 6.11：实验 1 的有界模型检查。
 - MiniSAT：实验 2 的 SAT 求解。
 - Python、Z3Py（`z3-solver`）：实验 3 的 SMT 建模、性质验证、不可满足核分析和优化求解。
+- Frama-C（WP、Eva）、Alt-Ergo：实验 4 的 ACSL 契约、运行时安全证明和值分析。
+- Rocq 9.1、VsRocq：实验 4 的交互式定理证明与脚本检查。
